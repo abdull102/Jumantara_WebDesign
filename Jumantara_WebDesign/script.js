@@ -34,9 +34,9 @@ function createSparkles(containerId, count, maxHeight) {
 
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
-    createSparkles("sparkleContainer", 240, 245); // Halaman home
-    createSparkles("sparkleContainerFeatures", 260, 280); // Halaman features
-    createSparkles("sparkleContainerAbout", 240, 170); // Halaman about
+    createSparkles("sparkleContainer", 140, 245); // Halaman home
+    createSparkles("sparkleContainerFeatures", 160, 280); // Halaman features
+    createSparkles("sparkleContainerAbout", 140, 170); // Halaman about
   }, 100); // delay 100ms
 });
 /* ------------------ end spark background --------------------- */
