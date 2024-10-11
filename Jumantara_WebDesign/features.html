@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Features</title>
+	<link rel="stylesheet" href="src/index.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+
+<body class="bg-zinc-950 max-w-7xl min-h-screen mx-auto">
+	<div class="absolute inset-0 -z-50" id="sparkleContainerFeatures"></div>
+
+	<!-- navbar -->
+	<nav x-data="{ open:false }" class="sticky top-4 z-50 ">
+
+		<!-- desktop navigation and mobile button -->
+		<div
+			class="flex justify-between items-center px-2 py-2 bg-zinc-700 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 mx-4 lg:mx-48 my-4 rounded-lg">
+			<!-- logo -->
+			<a href="index.html"><img src="src/logo.svg" alt="logo" class="h-6"></a>
+
+			<!-- navigasi desktop -->
+			<ul class="hidden lg:flex gap-1 text-zinc-100">
+				<li><a href="index.html" class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">Home</a>
+				</li>
+				<li><a href="features.html"
+						class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">Features</a>
+				</li>
+				<li><a href="index.html#promotions"
+						class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">Promotions</a>
+				</li>
+				<li><a href="index.html#pricing"
+						class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">Pricing</a>
+				</li>
+				<li><a href="about.html" class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">About</a>
+				</li>
+			</ul>
+
+			<!-- get connect -->
+			<a href="#"
+				class="hidden lg:block px-4 py-2 bg-zinc-50 hover:bg-zinc-300 text-sm text-zinc-800 font-medium rounded-lg">Get
+				connect</a>
+
+			<!-- Mobile button-->
+			<div class="flex lg:hidden">
+				<!-- Mobile menu button -->
+				<button @click="open = !open" type="button"
+					class="relative inline-flex items-center justify-center rounded-full p-2 text-gray-400 hover:bg-zinc-800 hover:text-zinc-600 focus:outline-none transition-all duration-200"
+					aria-controls="mobile-menu" aria-expanded="false">
+					<!-- Menu open: "hidden", Menu closed: "block" -->
+					<svg x-show="!open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+						stroke="currentColor" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round"
+							d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+					</svg>
+					<!-- Menu open: "block", Menu closed: "hidden" -->
+					<svg x-show="open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+						stroke="currentColor" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				</button>
+			</div>
+		</div>
+
+		<!-- mobile navigation-->
+		<div x-show="open" x-transition:enter="transition ease-out duration-500 transform"
+			x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+			x-transition:leave="transition ease-in duration-150 transform"
+			x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
+			class="lg:hidden mx-4 my-2 bg-zinc-800 bg-opacity-40 backdrop-filter backdrop-blur-sm backdrop:blur-sm rounded-lg"
+			id="mobile-menu">
+			<div class="flex flex-col gap-2 px-2 pb-3 pt-2 sm:px-3 text-center text-zinc-50">
+				<a href="features.html"
+					class="rounded-md hover:scale-105 px-3 py-2 text-base font-medium transition-all duration-300"
+					aria-current="page">Features</a>
+				<a href="index.html#promotions"
+					class="rounded-md hover:scale-105 px-3 py-2 text-base font-medium transition-all duration-300"
+					aria-current="page">Promotions</a>
+				<a href="index.html#pricing"
+					class="rounded-md hover:scale-105 px-3 py-2 text-base font-medium transition-all duration-300"
+					aria-current="page">Pricing</a>
+				<a href="about.html"
+					class="rounded-md hover:scale-105 px-3 py-2 text-base font-medium transition-all duration-300"
+					aria-current="page">About</a>
+				<a href="#"
+					class="mt-4 px-4 py-2 bg-zinc-50 hover:bg-zinc-300 text-sm text-zinc-800 font-medium rounded-lg">Get
+					connect</a>
+			</div>
+		</div>
+
+	</nav>
+
+	<!-- hero -->
+	<div
+		class="w-96 lg:w-[30rem] h-36 absolute lg:mt-12 ml-8 md:ml-64 lg:ml-80 -z-10 rounded-full bg-gradient-to-r from-blue-900 to-blue-700 backdrop-blur-xl blur-3xl opacity-15">
+	</div>
+	<section class="my-24 flex flex-col justify-center items-center">
+		<h1
+			class="h1 w-80 md:w-full text-4xl lg:text-5xl text-center font-semibold pb-2 bg-gradient-to-r from-zinc-50 to-zinc-500 bg-clip-text text-transparent">
+			Our Superior Features</h1>
+		<p class="p mt-4 text-zinc-400 text-sm lg:text-base text-center">Releasing limited features and bringing
+			internet with <br> low latency
+			and various superior features</p>
+
+		<!-- container -->
+		<div class="mt-24 flex flex-col lg:flex-row gap-4 mx-4 md:mx-8 text-zinc-50">
+			<!-- simetric upload and download -->
+			<div
+				class="fade-right w-full pb-4 px-4 rounded-lg bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+				<h1 class="text-7xl lg:text-8xl font-light">1:1 <span class="text-xs text-zinc-300">upload &
+						download</span></h1>
+				<div class="mt-6">
+					<h2 class="font-semibold lg:text-lg">True simetric bandwith internet</h2>
+					<p class="mt-2 text-sm text-zinc-400">We ensure the satisfaction and experience of <br> our service
+						users by
+						providing the appropriate <br> bandwidth for paying users</p>
+				</div>
+			</div>
+
+			<!-- powerfull internet -->
+			<div
+				class="powerfull2 w-full pb-4 px-4 rounded-lg bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+				<h1 class="text-7xl lg:text-8xl font-light">10 <span class="text-xs text-zinc-300">Gigabit per
+						second</span></h1>
+				<div class="mt-6">
+					<h2 class="font-semibold lg:text-lg">Powerfull and Fastest Internet</h2>
+					<p class="mt-2 text-sm text-zinc-400">Added dynamic public ip option, available for all <br> package
+						types
+						so it can adapt to user needs</p>
+				</div>
+			</div>
+
+			<!-- cloud services -->
+			<div
+				class="cloud2 w-full pb-4 px-4 rounded-lg bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+				<div class="flex items-end gap-4">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+						stroke-linecap="round" stroke-linejoin="round"
+						class="icon icon-tabler icons-tabler-outline icon-tabler-cloud h-16 lg:h-24 stroke-[1.5px]">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+						<path
+							d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.487 -3.465 3.487h-11.878" />
+					</svg>
+					<span class="mb-4 text-xs text-zinc-300">Secured and trusted cloud</span>
+				</div>
+				<div class="mt-6">
+					<h2 class="font-semibold lg:text-lg">Cloud Services</h2>
+					<p class="mt-2 text-sm text-zinc-400">We also provide cloud services such as cloud servers, VPS,
+						cloud computers and others</p>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- choosee services -->
+	<article class="my-24 flex flex-col justify-center items-center gap-6 mx-4 md:mx-12 text-zinc-50">
+		<h1
+			class="h1 text-4xl lg:text-5xl mx-12 lg:mx-0 text-center font-semibold pb-2 bg-gradient-to-r from-zinc-50 to-zinc-500 bg-clip-text text-transparent">
+			Why Choose Our Services</h1>
+		<p class="p w-80 lg:w-96 text-zinc-400 text-sm lg:text-base text-center">We provide the best service according
+			to the needs of each of our customers</p>
+
+		<!-- online meeting container-->
+		<div
+			class="meeting mt-16 w-full p-4 pb-0 md:p-8 md:pb-0 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30 rounded-lg">
+			<h1 class="text-xl lg:text-3xl font-semibold text-center"> Online Meeting Conference <br> Without Worried
+			</h1>
+			<p class="mt-4 text-zinc-400 text-sm lg:text-base text-center">We ensure that you stay connected and smooth
+				without <br> lag when
+				conducting online conferences
+			</p>
+
+			<!-- grid container -->
+			<div class="flex flex-col lg:flex-row gap-6 mt-4 md:mt-8">
+				<!-- meeting -->
+				<div
+					class="bg-[url('/src/meet.png')] bg-cover h-96 lg:h-[26rem] lg:w-[42rem] flex flex-col justify-between rounded-lg lg:rounded-none lg:rounded-t-lg">
+					<!-- section 1 -->
+					<section class="flex justify-between items-center m-2">
+						<div
+							class="flex items-center gap-2 p-1 bg-zinc-800 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 w-fit rounded-full pr-3">
+							<img src="src/a.png" alt="a" class="h-6">
+							<span class="text-zinc-100 text-xs">John Doe has joined</span>
+						</div>
+						<div
+							class="flex items-center gap-2 p-1 bg-zinc-100 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-15 w-fit rounded-full pr-3">
+							<div class="h-3 w-3 bg-red-600 rounded-full"></div>
+							<span class="text-zinc-900 text-xs">11:56</span>
+						</div>
+					</section>
+
+					<!-- section 2 -->
+					<section
+						class="flex mx-auto items-center gap-2 m-2 p-1 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 w-fit rounded-lg">
+
+						<!-- share -->
+						<div
+							class="p-1 bg-zinc-800 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 hover:bg-opacity-60 w-fit rounded-lg cursor-pointer">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+								stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+								class="icon icon-tabler icons-tabler-outline icon-tabler-share-3 h-6">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path
+									d="M13 4v4c-6.575 1.028 -9.02 6.788 -10 12c-.037 .206 5.384 -5.962 10 -6v4l8 -7l-8 -7z" />
+							</svg>
+						</div>
+
+						<!-- record -->
+						<div
+							class="p-1 bg-zinc-800 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 hover:bg-opacity-60 w-fit rounded-lg cursor-pointer">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+								stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+								class="icon icon-tabler icons-tabler-outline icon-tabler-video h-6">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path
+									d="M15 10l4.553 -2.276a1 1 0 0 1 1.447 .894v6.764a1 1 0 0 1 -1.447 .894l-4.553 -2.276v-4z" />
+								<path
+									d="M3 6m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
+							</svg>
+						</div>
+
+						<!-- mic -->
+						<div
+							class="p-1 bg-zinc-800 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 hover:bg-opacity-60 w-fit rounded-lg cursor-pointer">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+								stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+								class="icon icon-tabler icons-tabler-outline icon-tabler-microphone-off h-6">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path d="M3 3l18 18" />
+								<path d="M9 5a3 3 0 0 1 6 0v5a3 3 0 0 1 -.13 .874m-2 2a3 3 0 0 1 -3.87 -2.872v-1" />
+								<path d="M5 10a7 7 0 0 0 10.846 5.85m2 -2a6.967 6.967 0 0 0 1.152 -3.85" />
+								<path d="M8 21l8 0" />
+								<path d="M12 17l0 4" />
+							</svg>
+						</div>
+
+						<!-- call -->
+						<div
+							class="p-1 bg-red-800 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-60 hover:bg-opacity-100 w-fit rounded-lg cursor-pointer">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+								stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+								class="icon icon-tabler icons-tabler-outline icon-tabler-phone h-6 rotate-[135deg]">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path
+									d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+							</svg>
+						</div>
+
+					</section>
+
+				</div>
+
+				<!-- recent work -->
+				<div class="p-4 mb-4 lg:mb-0 bg-zinc-800 rounded-lg lg:rounded-none lg:rounded-t-lg">
+					<h1 class="text-xl font-semibold">Recent works</h1>
+					<div
+						class="mt-4 p-4 pr-24 bg-violet-500 bg-opacity-15 hover:bg-opacity-40 border border-zinc-200 border-opacity-15 rounded-lg">
+						<span class="px-2 py-1 bg-violet-800 bg-opacity-25 rounded-full">Web developer</span>
+						<h4 class="font-medium text-lg lg:w-52">Hero section frontend with css and javascript</h4>
+
+						<div class="mt-4 flex items-center gap-2">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+								stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+								class="icon icon-tabler icons-tabler-outline icon-tabler-clock h-4">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+								<path d="M12 7v5l3 3" />
+							</svg>
+							<span class="text-sm">1.2 hours</span>
+						</div>
+					</div>
+
+					<h1 class="mt-6 text-xl font-semibold">Next Meeting</h1>
+					<div
+						class="mt-4 p-4 pr-24 bg-green-500 bg-opacity-15 hover:bg-opacity-40 border border-zinc-200 border-opacity-15 rounded-lg">
+						<h4 class="font-medium text-lg lg:w-64">Company Profile Landing Page Project Meeting</h4>
+
+						<!-- container -->
+						<div class="flex items-center gap-4">
+							<div class="mt-4 flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-width="1" stroke-linecap="round"
+									stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-event h-4">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path
+										d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+									<path d="M16 3l0 4" />
+									<path d="M8 3l0 4" />
+									<path d="M4 11l16 0" />
+									<path d="M8 15h2v2h-2z" />
+								</svg>
+								<span class="text-sm">Today</span>
+							</div>
+							<div class="mt-4 flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-width="1" stroke-linecap="round"
+									stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-clock h-4">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+									<path d="M12 7v5l3 3" />
+								</svg>
+								<span class="text-sm">12:10 am</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!--experiance and service container -->
+		<section class="flex flex-col lg:flex-row w-full gap-6">
+
+			<!-- gaming experience -->
+			<div
+				class="fade-right flex flex-col w-full p-4 pb-0 pr-0 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30 rounded-lg">
+				<div>
+					<h1 class="text-xl lg:text-3xl font-semibold"> Excelent Gaming <br> Experience</h1>
+					<p class="mt-4 text-sm lg:text-base text-zinc-400">With speed up to 10Gbps you can download your
+						<br>
+						favorite game with less time and delay
+					</p>
+				</div>
+
+				<!-- gaming example container -->
+				<div
+					class="flex p-4 pt-2 mt-4 ml-12 bg-zinc-300 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-15 rounded-tl-lg">
+					<div class="w-full">
+						<h1 class="text-4xl lg:text-5xl text-green-500">10ms <span
+								class="text-xs lg:text-sm text-zinc-300">Ping latency</span>
+						</h1>
+
+						<!-- information -->
+						<div class="py-2 lg:p-2">
+							<div class="flex justify-between">
+								<h1 class="text-xs lg:text-sm">File size <span class="font-medium">28.4</span><span
+										class="text-xs"> GB</span></h1>
+								<h1 class="text-xs lg:text-sm">Estimated time complete <span
+										class="font-medium number"></span><span class="text-xs"> sec</span></h1>
+							</div>
+						</div>
+
+						<!-- progress bar -->
+						<div class="w-full h-4 bg-zinc-900 rounded-full">
+							<div class="gaming w-2/3 h-full bg-gradient-to-r from-green-500 to-zinc-900 rounded-full">
+							</div>
+						</div>
+
+						<!-- speed information -->
+						<div class="mt-4 flex justify-center items-center gap-2">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+								stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+								class="icon icon-tabler icons-tabler-outline icon-tabler-bolt h-5 stroke-[1.5px] stroke-blue-500">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" />
+							</svg>
+							<span class="text-xs text-zinc-200">Speed 10,092 Mbps</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- service for all needs -->
+			<div
+				class="fade-left flex flex-col justify-between w-full p-4 pb-0 pr-0 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30 rounded-lg">
+				<div>
+					<h1 class="text-xl lg:text-3xl font-semibold"> One Service <br> For All Needs</h1>
+					<p class="mt-4 text-sm lg:text-base text-zinc-400">Feel ease and comfort with our service ecosystem.
+						<br> Provides many
+						services to meet your various needs
+					</p>
+				</div>
+
+				<!-- service for all needs container -->
+				<div x-data="{ open: false }"
+					class="flex flex-wrap lg:flex-nowrap justify-between gap-2 px-4 lg:px-8 py-12 mt-4 ml-12 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-15 rounded-tl-lg">
+
+					<!-- gaming -->
+					<div @mouseover="open = true" @mouseleave="open = false"
+						class="flex flex-col p-2 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 rounded-full group scale-90 lg:scale-100">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-linecap="round" stroke-linejoin="round"
+							class="icon icon-tabler icons-tabler-outline icon-tabler-device-gamepad-2 h-12 stroke-1">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path
+								d="M12 5h3.5a5 5 0 0 1 0 10h-5.5l-4.015 4.227a2.3 2.3 0 0 1 -3.923 -2.035l1.634 -8.173a5 5 0 0 1 4.904 -4.019h3.4z" />
+							<path d="M14 15l4.07 4.284a2.3 2.3 0 0 0 3.925 -2.023l-1.6 -8.232" />
+							<path d="M8 9v2" />
+							<path d="M7 10h2" />
+							<path d="M14 10h2" />
+						</svg>
+						<span x-show="open" x-transition:enter="transition duration-300 transform"
+							x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+							x-transition:leave="transition transform" x-transition:leave-start="opacity-100 scale-100"
+							x-transition:leave-end="opacity-0 scale-95"
+							class="hidden group-hover:block absolute px-3 py-1 text-sm text-zinc-50 rounded-lg bg-zinc-500 bg-opacity-25 -mt-16 -ml-3">Gaming</span>
+					</div>
+
+					<!-- cloud -->
+					<div @mouseover="open = true" @mouseleave="open = false"
+						class="flex flex-col p-2 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 rounded-full group scale-90 lg:scale-100">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-linecap="round" stroke-linejoin="round"
+							class="icon icon-tabler icons-tabler-outline icon-tabler-cloud h-12 stroke-1">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path
+								d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.487 -3.465 3.487h-11.878" />
+						</svg>
+						<span x-show="open" x-transition:enter="transition duration-300 transform"
+							x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+							x-transition:leave="transition transform" x-transition:leave-start="opacity-100 scale-100"
+							x-transition:leave-end="opacity-0 scale-95"
+							class="hidden group-hover:block absolute px-3 py-1 text-sm text-zinc-50 rounded-lg bg-zinc-500 bg-opacity-25 -mt-16 -ml-2">Cloud</span>
+					</div>
+
+					<!-- entertaiment -->
+					<div @mouseover="open = true" @mouseleave="open = false"
+						class="flex flex-col p-2 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 rounded-full group scale-90 lg:scale-100">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-linecap="round" stroke-linejoin="round"
+							class="icon icon-tabler icons-tabler-outline icon-tabler-brand-zoom h-12 stroke-1">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M17.011 9.385v5.128l3.989 3.487v-12z" />
+							<path
+								d="M3.887 6h10.08c1.468 0 3.033 1.203 3.033 2.803v8.196a.991 .991 0 0 1 -.975 1h-10.373c-1.667 0 -2.652 -1.5 -2.652 -3l.01 -8a.882 .882 0 0 1 .208 -.71a.841 .841 0 0 1 .67 -.287z" />
+						</svg>
+						<span x-show="open" x-transition:enter="transition duration-300 transform"
+							x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+							x-transition:leave="transition transform" x-transition:leave-start="opacity-100 scale-100"
+							x-transition:leave-end="opacity-0 scale-95"
+							class="hidden group-hover:block absolute px-3 py-1 text-sm text-zinc-50 rounded-lg bg-zinc-500 bg-opacity-25 -mt-16 -ml-6">Entertaiment</span>
+					</div>
+
+					<!-- meeting -->
+					<div @mouseover="open = true" @mouseleave="open = false"
+						class="flex flex-col p-2 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 rounded-full group scale-90 lg:scale-100">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-linecap="round" stroke-linejoin="round"
+							class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube h-12 stroke-1">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" />
+							<path d="M10 9l5 3l-5 3z" />
+						</svg>
+						<span x-show="open" x-transition:enter="transition duration-300 transform"
+							x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+							x-transition:leave="transition transform" x-transition:leave-start="opacity-100 scale-100"
+							x-transition:leave-end="opacity-0 scale-95"
+							class="hidden group-hover:block absolute px-3 py-1 text-sm text-zinc-50 rounded-lg bg-zinc-500 bg-opacity-25 -mt-16 -ml-4">Meeting</span>
+					</div>
+
+					<!-- business -->
+					<div @mouseover="open = true" @mouseleave="open = false"
+						class="flex flex-col p-2 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 rounded-full group scale-90 lg:scale-100">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-linecap="round" stroke-linejoin="round"
+							class="icon icon-tabler icons-tabler-outline icon-tabler-building-skyscraper h-12 stroke-1">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M3 21l18 0" />
+							<path d="M5 21v-14l8 -4v18" />
+							<path d="M19 21v-10l-6 -4" />
+							<path d="M9 9l0 .01" />
+							<path d="M9 12l0 .01" />
+							<path d="M9 15l0 .01" />
+							<path d="M9 18l0 .01" />
+						</svg>
+						<span x-show="open" x-transition:enter="transition duration-300 transform"
+							x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+							x-transition:leave="transition transform" x-transition:leave-start="opacity-100 scale-100"
+							x-transition:leave-end="opacity-0 scale-95"
+							class="hidden group-hover:block absolute px-3 py-1 text-sm text-zinc-50 rounded-lg bg-zinc-500 bg-opacity-25 -mt-16 -ml-4">Business</span>
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
+
+	</article>
+
+	<!-- workstation features -->
+	<article class="mx-4 md:mx-12 text-zinc-50">
+		<h1
+			class="h1 text-4xl lg:text-5xl text-center font-semibold pb-2 bg-gradient-to-r from-zinc-50 to-zinc-500 bg-clip-text text-transparent">
+			Workstation Features <br> and Services</h1>
+		<p class="p mt-4 text-sm lg:text-base text-zinc-400 text-center">We provide workstation and profesionnal
+			services with <br> seamless
+			ecosystem for all our services</p>
+
+		<!-- workstation container -->
+		<section class="mt-16 w-full flex flex-col lg:flex-row gap-6">
+			<!-- colaborate -->
+			<div
+				class="fade-right flex flex-col lg:flex-row lg:items-end gap-4 p-4 pb-0 pr-0 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30 rounded-lg">
+				<div class="pb-4">
+					<h1 class="text-xl lg:text-3xl font-semibold"> Colaborate Team <br> with Superwork</h1>
+					<p class="mt-4 text-sm lg:text-base text-zinc-400 md:w-80">Working collaboratively becomes easier
+						<br> at same ecosystem
+						with Superwork
+					</p>
+				</div>
+
+				<div
+					class="mt-12 flex flex-col pt-4 bg-zinc-400 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-40 rounded-tl-lg">
+					<h1 class="pl-4 lg:text-xl font-medium">Share your work</h1>
+
+					<!-- email container-->
+					<div class="pl-4 mt-4 flex justify-between items-center gap-2">
+						<!-- email -->
+						<div x-data="{ share: false}"
+							class="flex justify-between md:w-full px-4 py-2 bg-zinc-400 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-40 rounded-lg">
+							<input type="email" placeholder="Enter email address"
+								class="w-[10rem] md:w-fit text-zinc-50 placeholder:text-zinc-400 placeholder:text-xs text-sm bg-transparent border-0 outline-none">
+							<div @click="share = !share" class="flex lg:w-20 items-center gap-2 cursor-pointer">
+								<span class="font-medium text-xs lg:text-sm">Can edit</span>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down h-4 stroke-1">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M6 9l6 6l6 -6" />
+								</svg>
+							</div>
+							<div x-show="share" @click="share = !share"
+								class="absolute z-10 ml-28 md:ml-[38.5rem] lg:ml-28 mt-10 flex flex-col gap-2 p-2 w-36 font-medium text-sm bg-zinc-600 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-90 rounded-lg">
+								<h6 class="flex flex-col p-2 hover:bg-zinc-900 cursor-pointer rounded-lg">Editor
+									<span class="text-xs text-zinc-400">Edit and share</span>
+								</h6>
+								<h6 class="flex flex-col p-2 hover:bg-zinc-900 cursor-pointer rounded-lg">Viewer
+									<span class="text-xs text-zinc-400">View and share</span>
+								</h6>
+								<h5 class="flex flex-col p-2 hover:bg-zinc-900 cursor-pointer rounded-lg">View only
+									<span class="text-xs text-zinc-400">View only</span>
+								</h5>
+							</div>
+						</div>
+
+						<!-- share -->
+						<button
+							class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-700 rounded-bl-lg rounded-tl-lg">Share</button>
+					</div>
+
+					<!-- team access -->
+					<div class="pl-4 mt-6">
+						<h3 class="text-sm text-zinc-300">Personalize teams access</h3>
+
+						<!-- user 1 -->
+						<div class="mt-2 flex justify-between pr-2">
+							<div class="flex items-center gap-4">
+								<img src="src/a.png" alt="a" class="h-8 md:h-10">
+								<div>
+									<h5 class="font-mediumtext-xs md:text-sm">John Doe</h5>
+									<span class="text-xs text-zinc-400">johndoe@gmail.com</span>
+								</div>
+							</div>
+
+							<!-- edit button -->
+							<div class="flex items-center gap-2 cursor-pointer">
+								<span class="font-medium text-xs md:text-sm">Editor</span>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down h-4 stroke-1">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M6 9l6 6l6 -6" />
+								</svg>
+							</div>
+
+						</div>
+
+						<!-- user 2 -->
+						<div class="mt-2 flex justify-between pr-2">
+							<div class="flex items-center gap-4 ">
+								<img src="src/b.png" alt="b" class="h-8 md:h-10">
+								<div>
+									<h5 class="font-medium text-xs md:text-sm">Sienna hewit</h5>
+									<span class="text-xs text-zinc-400">siennahewit@gmail.com</span>
+								</div>
+							</div>
+
+							<!-- edit button -->
+							<div class="flex items-center gap-2 cursor-pointer">
+								<span class="font-medium text-xs md:text-sm">Editor</span>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down h-4 stroke-1">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M6 9l6 6l6 -6" />
+								</svg>
+							</div>
+
+						</div>
+
+						<!-- user 3 -->
+						<div class="mt-2 flex justify-between pr-2">
+							<div class="flex items-center gap-4">
+								<img src="src/c.png" alt="c" class="h-8 md:h-10">
+								<div>
+									<h5 class="font-medium text-xs md:text-sm">Matthew Portman</h5>
+									<span class="text-xs text-zinc-400">matthewportman@gmail.com</span>
+								</div>
+							</div>
+
+							<!-- edit button -->
+							<div @click="share = !share" class="flex items-center gap-2 cursor-pointer">
+								<span class="font-medium text-xs md:text-sm">Viewer</span>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down h-4 stroke-1">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M6 9l6 6l6 -6" />
+								</svg>
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- share link -->
+					<div class="mt-6 flex justify-between py-2 px-4 bg-zinc-950">
+						<!-- link -->
+						<div class="flex items-center gap-2">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+								stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+								class="icon icon-tabler icons-tabler-outline icon-tabler-link h-5 md:h-6 stroke-1 text-zinc-400">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path d="M9 15l6 -6" />
+								<path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464" />
+								<path
+									d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463" />
+							</svg>
+							<div class="flex items-center gap-2 text-xs text-zinc-400">
+								<span>Anyone with the link can view</span>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down h-4 stroke-1">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M6 9l6 6l6 -6" />
+								</svg>
+							</div>
+						</div>
+
+						<!-- share button -->
+						<button
+							class="px-4 py-2 bg-zinc-800 hover:bg-zinc-900 text-xs md:text-sm font-medium rounded-lg">Copy
+							link</button>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- extend storage -->
+			<div
+				class="fade-left flex flex-col justify-between pb-4 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30 rounded-lg">
+				<!-- supercloud -->
+				<div
+					class="flex gap-2 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 rounded-tr-lg rounded-br-lg">
+					<!-- sidebar -->
+					<div
+						class="flex flex-col py-2 px-2 bg-zinc-600 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 border border-zinc-500 border-opacity-30 rounded-tl-lg rounded-r-lg">
+						<img src="src/supercloud.svg" alt="supercloud">
+
+						<div class="mt-4 flex flex-col gap-2">
+							<a href="#"
+								class="flex items-center gap-4 px-4 py-2 bg-zinc-900 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 border border-zinc-500 border-opacity-30 rounded-lg">
+								<img src="src/home.svg" alt="home">
+								<span class="text-xs md:text-sm">Home</span>
+							</a>
+							<a href="#"
+								class="flex items-center gap-4 px-4 py-2 bg-zinc-900 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-80 rounded-lg">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-file h-4 stroke-1">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M14 3v4a1 1 0 0 0 1 1h4" />
+									<path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+								</svg>
+								<span class="text-xs md:text-sm">My files</span>
+							</a>
+							<a href="#"
+								class="flex items-center gap-4 px-4 py-2 bg-zinc-900 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 border border-zinc-500 border-opacity-30 rounded-lg">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-up h-4 stroke-1">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path
+										d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.57 .811 3.128 1.986" />
+									<path d="M19 22v-6" />
+									<path d="M22 19l-3 -3l-3 3" />
+								</svg>
+								<span class="text-xs md:text-sm">Backup</span>
+							</a>
+							<a href="#"
+								class="flex items-center gap-4 px-4 py-2 bg-zinc-900 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 border border-zinc-500 border-opacity-30 rounded-lg">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+									stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-trash h-4 stroke-1">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M4 7l16 0" />
+									<path d="M10 11l0 6" />
+									<path d="M14 11l0 6" />
+									<path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+									<path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+								</svg>
+								<span class="text-xs md:text-sm">Trash</span>
+							</a>
+						</div>
+					</div>
+
+					<!-- cloud storage -->
+					<div class="flex flex-col gap-4 px-2 py-4">
+						<!-- search -->
+						<div class="flex gap-2 bg-zinc-800 h-fit p-2 rounded-full">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+								stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+								class="icon icon-tabler icons-tabler-outline icon-tabler-search h-4 stroke-1">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+								<path d="M21 21l-6 -6" />
+							</svg>
+							<span class="text-xs text-zinc-400">Search any files</span>
+						</div>
+
+						<!-- files -->
+						<div class="mt-2">
+							<h1 class="font-medium lg:text-lg">Recent files</h1>
+							<!-- files container -->
+							<div class="mt-2 lg:mt-0 flex gap-2">
+								<!-- word -->
+								<div
+									class="flex flex-col items-center p-4 border border-zinc-500 border-opacity-30 rounded-lg">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+										stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+										class="icon icon-tabler icons-tabler-outline icon-tabler-file-type-docx h-14 md:h-16 stroke-1 stroke-blue-500">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+										<path d="M14 3v4a1 1 0 0 0 1 1h4" />
+										<path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4" />
+										<path d="M2 15v6h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2h-1z" />
+										<path d="M17 16.5a1.5 1.5 0 0 0 -3 0v3a1.5 1.5 0 0 0 3 0" />
+										<path
+											d="M9.5 15a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1 -3 0v-3a1.5 1.5 0 0 1 1.5 -1.5z" />
+										<path d="M19.5 15l3 6" />
+										<path d="M19.5 21l3 -6" />
+									</svg>
+									<span class="text-xs text-zinc-200">Brief project.docx</span>
+								</div>
+
+								<!-- excel -->
+								<div
+									class="flex flex-col items-center p-4 border border-zinc-500 border-opacity-30 rounded-lg">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+										stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+										class="icon icon-tabler icons-tabler-outline icon-tabler-file-type-xls h-14 md:h-1 stroke-1 stroke-green-500">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+										<path d="M14 3v4a1 1 0 0 0 1 1h4" />
+										<path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4" />
+										<path d="M4 15l4 6" />
+										<path d="M4 21l4 -6" />
+										<path
+											d="M17 20.25c0 .414 .336 .75 .75 .75h1.25a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1h1.25a.75 .75 0 0 1 .75 .75" />
+										<path d="M11 15v6h3" />
+									</svg>
+									<span class="text-xs text-zinc-200">Financial report.xls</span>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-8 lg:mt-0 px-4">
+					<h1 class="text-xl lg:text-3xl font-semibold">Extrend Strorage <br> Wtih Supercloud</h1>
+					<p class="mt-4 text-sm lg:text-base text-zinc-400">With speed up to 10Gbps you can download <br>
+						your favorite game with
+						less time and delay</p>
+				</div>
+			</div>
+
+		</section>
+	</article>
+
+	<!-- ai era -->
+	<article class="my-24 mx-4 md:mx-12 text-zinc-50">
+		<h1
+			class="h1 text-4xl lg:text-5xl text-center font-semibold pb-2 bg-gradient-to-r from-violet-500 to-rose-400 to-80% bg-clip-text text-transparent">
+			AI Era Is Coming</h1>
+		<p class="p mt-4 text-sm lg:text-base text-zinc-400 text-center">We consider the AI is be is our main need in
+			making <br> our daily
+			work easier</p>
+
+		<!-- ai container -->
+		<article
+			class="fade-up mt-16 pr-24 lg:pb-56 flex flex-col-reverse lg:flex-row p-4 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30 rounded-lg">
+			<!-- text container-->
+			<div class="mt-52 lg:mt-4 w-full">
+				<!-- text -->
+				<div>
+					<h1 class="text-xl lg:text-3xl font-semibold"> Create Document <br> with AI Chat Assistant</h1>
+					<p class="mt-4 text-sm lg:text-base text-zinc-400">From now on you don't need to take long to <br>
+						create documents for
+						your work. Using AI <br> makes your work faster and more efficient
+					</p>
+				</div>
+				<!-- logo container-->
+				<div>
+					<h1 class="mt-6 mb-2 md:mt-12 md:mb-4 md:text-lg">AI also available at</h1>
+					<!-- logo -->
+					<div class="flex items-center gap-4">
+						<img src="src/supercloud.svg" alt="supercloud" class="h-6">
+						<img src="src/superwork.svg" alt="superwork" class="h-6">
+						<img src="src/superai.svg" alt="superai" class="h-6">
+					</div>
+				</div>
+			</div>
+
+			<!-- ai superwork container -->
+			<div class="flex w-96 md:w-[32rem] lg:w-[98rem] lg:pt-24">
+				<!-- superwork container-->
+				<div class="flex flex-col p-4 bg-zinc-800 bg-opacity-15 rounded-xl">
+					<!-- header -->
+					<div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-2 lg:gap-0">
+						<img src="src/superwork.svg" alt="superwork" class="h-8">
+						<div
+							class="flex items-center gap-6 p-2 text-xs md:text-sm text-zinc-200 border border-zinc-500 border-opacity-30 rounded-lg">
+							<span>File</span>
+							<span>Edit</span>
+							<span>Insert</span>
+							<span>Layout</span>
+						</div>
+					</div>
+					<!-- document -->
+					<div
+						class="mt-4 p-4 text-xs md:text-sm text-zinc-100 border border-zinc-300 border-opacity-40 rounded-lg">
+						<p>We are seeking a talented and passionate Frontend Web Developer to join our dynamic team. The
+							ideal candidate will have a strong understanding of web development technologies and a keen
+							eye for design. You will be responsible for creating responsive, visually appealing, and
+							user-friendly web interfaces that enhance user engagement and experience</p>
+
+						<p class="mt-2">Develop and maintain web applications using HTML, CSS, and JavaScript.
+							Collaborate with designers and backend developers to implement and improve website features.
+							Ensure the technical feasibility of UI/UX designs. Optimize applications for maximum speed
+							and scalability. Conduct code reviews and provide constructive feedback to team members.
+							Stay up-to-date with the latest industry trends and technologies.</p>
+					</div>
+				</div>
+
+				<!-- ai chat container -->
+				<div
+					class="absolute text-sm w-[22rem] md:w-[28rem] lg:w-[30rem] mt-32 lg:mt-24 ml-5 md:ml-32 lg:ml-56 flex flex-col p-6 bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-60 border border-zinc-500 border-opacity-60 rounded-xl">
+					<div class="flex justify-end">
+						<div class="p-2 pl-4 text-right rounded-l-xl rounded-tr-xl rounded-br-sm bg-sky-600">Create
+							short brief to be frontend <br> web developer</div>
+					</div>
+					<span class="my-1 text-xs text-zinc-400 text-right">A min ago You</span>
+					<div class="flex mt-4">
+						<div class="p-2 pr-4 text-left rounded-bl-sm rounded-r-xl rounded-tl-xl bg-violet-600">
+							<p>Sure! Here’s a short brief for a frontend <br> web developer role:</p>
+
+							<p class="mt-2"><span class="font-medium">Position Overview: </span>We are seeking a
+								talented and
+								passionate Frontend Web Developer to join <br> our dynamic team.</p>
+
+						</div>
+					</div>
+					<span class="my-1 text-xs text-zinc-400 text-left">SuperAI - 30 sec ago</span>
+					<div class="mt-4 flex justify-end">
+						<div class="p-2 pl-4 text-right rounded-l-xl rounded-tr-xl rounded-br-sm bg-sky-600">Thank you
+							for the answer!</div>
+					</div>
+					<span class="my-1 text-xs text-zinc-400 text-right">Just now - You</span>
+
+					<!-- generate ai -->
+					<div class="mt-6 flex items-center gap-2">
+						<div class="w-full px-4 py-2 rounded-full bg-zinc-900 text-xs">Type here to start chat</div>
+						<button type="submit"
+							class="flex items-center gap-1 px-4 py-2 text-sm font-medium bg-gradient-to-r from-violet-600 hover:from-violet-700 to-rose-600 hover:to-rose-700 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-15 rounded-full">
+							<span>Generate</span>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+								stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+								class="icon icon-tabler icons-tabler-outline icon-tabler-sparkles h-4 stroke-1">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<path
+									d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z" />
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+
+
+
+		</article>
+
+	</article>
+
+	<!-- question -->
+	<section
+		class="flex flex-col lg:flex-row justify-between items-start lg:items-center py-8 lg:py-0 px-4 md:px-8 h-72 lg:h-96 mx-4 md:mx-12 text-zinc-50 bg-gradient-to-r from-blue-950 to-purple-950 rounded-lg">
+		<!-- question text -->
+		<div>
+			<h1 class="text-2xl lg:text-4xl font-medium lg:font-semibold">Any question about Supernet?</h1>
+			<p class="mt-4 text-base lg:text-lg text-zinc-200">Send we message about your question <br> and subscribe
+				our newsletter</p>
+		</div>
+
+		<!-- message -->
+		<form class="w-full lg:w-2/5 flex flex-col gap-4">
+			<input id="message" type="text"
+				class="bg-transparent outline-none h-10 md:h-12 px-4 border border-zinc-300 border-opacity-50 rounded-lg placeholder:text-zinc-300 placeholder:text-sm lg:placeholder:text-base text-sm lg:text-base"
+				placeholder="Ask question here">
+			<button onclick="sendMessage()"
+				class="w-fit flex items-center gap-2 text-sm md:text-base px-4 py-2 bg-gradient-to-r from-purple-700 hover:from-purple-800 to-purple-800 hover:to-purple-900 rounded-lg group">
+				<span>Send Message</span>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+					stroke-linecap="round" stroke-linejoin="round"
+					class="icon icon-tabler icons-tabler-outline icon-tabler-send h-5 md:h-6 stroke-1 group-hover:rotate-45 transition-all duration-300">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<path d="M10 14l11 -11" />
+					<path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+				</svg>
+			</button>
+		</form>
+
+	</section>
+
+	<!-- footer -->
+	<footer class="mt-24 m-2 px-6 md:px-12 pt-8 pb-2 bg-zinc-900 bg-opacity-40 text-zinc-50 rounded-lg">
+		<!-- container -->
+		<div class="flex flex-col lg:flex-row justify-between">
+			<div>
+				<img src="src/about-logo.svg" alt="logo" class="h-10 md:h-12">
+				<h2 class="mt-2 mb-8 md:mb-12 md:mt-6 w-60 md:w-80 text-lg md:text-2xl font-medium text-zinc-400">Let’s
+					upgrade
+					your internet speed
+					now
+					with us</h2>
+
+				<a href="#"
+					class="px-6 md:px-8 py-2 md:py-3 bg-gradient-to-r from-blue-800 hover:from-blue-900 to-purple-800 hover:to-purple-900 hover:font-medium hover:ring-2 ring-zinc-900 rounded-lg">Connect
+					now</a>
+			</div>
+
+			<!-- navigation -->
+			<div class="flex flex-col lg:flex-row lg:items-center gap-12 md:gap-24 mt-16 lg:mt-0">
+				<!-- products -->
+				<div class="flex flex-col gap-2">
+					<h1 class="mb-2 md:mb-4 font-semibold text-zinc-400">Products</h1>
+					<a href="index.html" class="font-medium hover:text-blue-200">Supernet</a>
+					<a href="features.html#cloud" class="font-medium hover:text-blue-200">Supercloud</a>
+					<a href="features.html#ai" class="font-medium hover:text-blue-200">SuperAI</a>
+				</div>
+
+				<!-- pages -->
+				<div class="flex flex-col gap-2">
+					<h1 class="mb-2 md:mb-4 font-semibold text-zinc-400">Pages</h1>
+					<a href="index.html" class="font-medium hover:text-blue-200">Home</a>
+					<a href="features.html" class="font-medium hover:text-blue-200">Feature</a>
+					<a href="about.html" class="font-medium hover:text-blue-200">About</a>
+				</div>
+
+				<!-- social -->
+				<div class="flex flex-col gap-2">
+					<h1 class="mb-2 md:mb-4 font-semibold text-zinc-400">Social</h1>
+					<a href="#" class="font-medium hover:text-blue-200">Instagram</a>
+					<a href="#" class="font-medium hover:text-blue-200">Facebook</a>
+					<a href="#" class="font-medium hover:text-blue-200">Linkedin</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="flex justify-between mt-8 md:mt-12 pt-2 md:pt-4 border-t border-zinc-400 border-opacity-40">
+			<p class="text-xs md:text-base text-zinc-300">©2024 Supernet. All right reserved. </p>
+			<p class="text-xs md:text-sm text-right text-zinc-300">Gayatama Web Design Competition</p>
+		</div>
+	</footer>
+
+	<script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supernet</title>
+  <link rel="stylesheet" href="src/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+
+<body class="bg-zinc-950 max-w-7xl min-h-screen mx-auto">
+  <div class="absolute inset-0 -z-50" id="sparkleContainer"></div>
+
+  <!-- navbar -->
+  <nav x-data="{ open:false }" class="sticky top-4 z-50 ">
+  
+    <!-- desktop navigation and mobile button -->
+    <div
+      class="flex justify-between items-center px-2 py-2 bg-zinc-700 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 mx-4 lg:mx-48 my-4 rounded-lg">
+      <!-- logo -->
+      <a href="index.html"><img src="src/logo.svg" alt="logo" class="h-6"></a>
+  
+      <!-- navigasi desktop -->
+      <ul class="hidden lg:flex gap-1 text-zinc-100">
+        <li><a href="index.html" class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">Home</a></li>
+        <li><a href="features.html" class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">Features</a>
+        </li>
+        <li><a href="index.html#promotions"
+            class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">Promotions</a>
+        </li>
+        <li><a href="index.html#pricing" class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">Pricing</a>
+        </li>
+        <li><a href="about.html" class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">About</a>
+        </li>
+      </ul>
+  
+      <!-- get connect -->
+      <a href="#"
+        class="hidden lg:block px-4 py-2 bg-zinc-50 hover:bg-zinc-300 text-sm text-zinc-800 font-medium rounded-lg">Get
+        connect</a>
+  
+      <!-- Mobile button-->
+      <div class="flex lg:hidden">
+        <!-- Mobile menu button -->
+        <button @click="open = !open" type="button"
+          class="relative inline-flex items-center justify-center rounded-full p-2 text-gray-400 hover:bg-zinc-800 hover:text-zinc-600 focus:outline-none transition-all duration-200"
+          aria-controls="mobile-menu" aria-expanded="false">
+          <!-- Menu open: "hidden", Menu closed: "block" -->
+          <svg x-show="!open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <!-- Menu open: "block", Menu closed: "hidden" -->
+          <svg x-show="open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <!-- mobile navigation-->
+    <div x-show="open" x-transition:enter="transition ease-out duration-500 transform"
+      x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-150 transform" x-transition:leave-start="opacity-100 scale-100"
+      x-transition:leave-end="opacity-0 scale-95"
+      class="lg:hidden mx-4 my-2 bg-zinc-800 bg-opacity-40 backdrop-filter backdrop-blur-sm backdrop:blur-sm rounded-lg"
+      id="mobile-menu">
+      <div class="flex flex-col gap-2 px-2 pb-3 pt-2 sm:px-3 text-center text-zinc-50">
+        <a href="features.html"
+          class="rounded-md hover:scale-105 px-3 py-2 text-base font-medium transition-all duration-300"
+          aria-current="page">Features</a>
+        <a href="index.html#promotions"
+          class="rounded-md hover:scale-105 px-3 py-2 text-base font-medium transition-all duration-300"
+          aria-current="page">Promotions</a>
+        <a href="index.html#pricing"
+          class="rounded-md hover:scale-105 px-3 py-2 text-base font-medium transition-all duration-300"
+          aria-current="page">Pricing</a>
+        <a href="about.html"
+          class="rounded-md hover:scale-105 px-3 py-2 text-base font-medium transition-all duration-300"
+          aria-current="page">About</a>
+        <a href="#" class="mt-4 px-4 py-2 bg-zinc-50 hover:bg-zinc-300 text-sm text-zinc-800 font-medium rounded-lg">Get
+          connect</a>
+      </div>
+    </div>
+  
+  </nav>
+
+  <!-- hero -->
+  <section class="mx-6 md:mx-16 flex flex-col justify-center items-center">
+
+    <div class="flex justify-between items-center gap-2 animate-rotate-x mt-16 p-1 pr-4 w-fit bg-zinc-800 rounded-full">
+      <div class="flex items-center">
+        <img src="src/a.png" alt="a" class="h-6 md:h-8">
+        <img src="src/b.png" alt="b" class="-ml-2 h-6 md:h-8">
+        <img src="src/c.png" alt="c" class="-ml-2 h-6 md:h-8">
+      </div>
+      <span class="text-xs md:text-sm text-zinc-400">Trusted by 100.000+ active users</span>
+    </div>
+
+    <h1
+      class="w-96 md:w-[38rem] animate-fade-down mt-8 pb-4 text-4xl md:text-6xl font-bold text-center bg-gradient-to-r from-zinc-50 to-zinc-700 bg-clip-text text-transparent">
+      Real Fastest Internet Era has Coming</h1>
+    <p class="mt-4 md:mt-6 lg:mx-44 animate-fade-up text-sm md:text-xl text-zinc-400 text-center">Get unlimited bandwith
+      and simetric
+      full speed internet without Fup or sharing bandwith with other users. <span class="hidden md:inline">Enjoy your
+        streaming, game, and work with
+        our services</span></p>
+
+    <div class="flex items-center gap-2 mt-12 text-sm md:text-base font-medium">
+      <a href="#"
+        class="animate-fade-left bg-zinc-800 hover:bg-zinc-700 rounded-full text-zinc-50 px-6 py-2 md:py-[0.60rem]">Connect
+        Now</a>
+      <a href="#"
+        class="flex items-center gap-2 animate-fade-right bg-zinc-50 hover:bg-zinc-200 text-zinc-800 rounded-full px-4 py-2 md:py-1 group">
+        <span>Discover More</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-linecap="round" stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-gps h-5 md:h-8 stroke-1 group-hover:ml-2 group-hover:rotate-45 transition-all duration-300">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+          <path d="M12 17l-1 -4l-4 -1l9 -4z" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- feature -->
+  <img src="src/wide.svg" alt="wide"
+    class="hidden lg:block z-10 absolute h-56 mt-80 ml-80 hover:scale-110 transition-all duration-700">
+  <div
+    class="w-96 lg:w-[30rem] h-36 absolute mt-8 ml-8 md:ml-52 lg:ml-96 lg:mt-12 -z-10 rounded-full bg-gradient-to-r from-violet-900 to-violet-700 backdrop-blur-xl blur-3xl opacity-15">
+  </div>
+  <article class="my-24 flex flex-col items-center">
+    <div class="flex flex-col items-center">
+      <h1
+        class="h1 text-4xl md:text-5xl font-semibold pb-2 bg-gradient-to-r from-zinc-50 to-violet-500 bg-clip-text text-transparent">
+        Superior Features</h1>
+      <p class="p mt-4 w-80 lg:w-96 text-sm md:text-base text-zinc-400 text-center">Provides superior features that can
+        make it easier for users of our
+        internet services</p>
+    </div>
+
+    <!-- grid -->
+    <section class="flex flex-col md:flex-wrap md:flex-row gap-4 text-zinc-50 mx-4 md:mx-8 pt-24">
+
+      <!-- left vertical container -->
+      <section class="flex flex-col md:flex-row lg:flex-col gap-4 z-30">
+        <!-- simetric upload and download -->
+        <div
+          class="simetric pb-4 px-4 md:px-8 lg:px-4 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+          <h1 class="text-7xl md:text-8xl font-light">1:1 <span class="text-xs text-zinc-300">upload & download</span>
+          </h1>
+          <div class="mt-6">
+            <h2 class="font-semibold text-lg">True simetric bandwith internet</h2>
+            <p class="md:w-96 lg:w-72 mt-2 text-sm text-zinc-400">We ensure the satisfaction and experience of our service users by
+              providing the appropriate bandwidth for paying users</p>
+          </div>
+        </div>
+
+        <!-- ip dynamic public -->
+        <div
+          class="dynamic animate-delay-100 py-4 px-4 md:px-8 lg:px-4 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+          <div class="flex items-end gap-4">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="h-20 md:h-24 fill-zinc-50">
+              <path
+                d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-43-61v-82q-35 0-59-26t-24-61v-44L149-559q-5 20-7 39.5t-2 39.5q0 130 84.5 227T437-141Zm294-108q22-24 38.5-51t28-56.5q11.5-29.5 17-60.5t5.5-63q0-106-58-192.5T607-799v18q0 35-24 61t-59 26h-87v87q0 17-13.5 28T393-568h-83v88h258q17 0 28 13t11 30v127h43q29 0 51 17t30 44Z" />
+            </svg>
+            <span class="mb-4 text-xs text-zinc-300">IP Dynamic Public</span>
+          </div>
+          <div class="mt-6">
+            <h2 class="font-semibold text-lg">IP Dynamic Public with Add On</h2>
+            <p class="md:w-96 lg:w-72 mt-2 text-sm text-zinc-400">Added dynamic public ip option, available for all package types
+              so it can adapt to user needs</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- wide coverage container -->
+      <img src="src/wide.svg" alt="wide"
+        class="z-10 h-56 absolute hidden md:block lg:hidden mt-60 ml-10 lg:ml-64 lg:-mt-4">
+      <div
+        class="wide animate-delay-200 hidden md:flex flex-col justify-end w-full lg:w-fit md:pt-64 lg:pt-0 pb-4 px-4 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+        <div class="mt-6">
+          <h2 class="font-semibold text-lg">Wide Internet Coverage</h2>
+          <p class="mt-2 text-sm text-zinc-400">Our services have expanded to various countries around the world. <br>
+            with various types of fiber optic, satellite and cellular data services</p>
+          <a href="#"
+            class="flex flex-row-reverse items-center gap-2 w-fit mt-8 px-4 py-2 bg-zinc-100 rounded-lg font-medium text-sm text-zinc-800 hover:scale-105 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin h-5 fill-none stroke-[1.5px]">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+              <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+            </svg>
+            <span>Check location availability</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- right vertical container -->
+      <section class="flex flex-col md:flex-row lg:flex-col gap-4 z-30">
+        <!-- powerfull fastest -->
+        <div
+          class="powerfull animate-delay-300 pb-4 px-4 md:px-12 lg:px-4 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+          <h1 class="text-7xl md:text-8xl font-light">10 <span class="text-xs text-zinc-300">gigabit per second</span>
+          </h1>
+          <div class="mt-6">
+            <h2 class="font-semibold text-lg">Powerfull and Fastest Internet</h2>
+            <p class="mt-2 lg:w-80 text-sm text-zinc-400">We provide super fast internet services with very large
+              bandwidth for gamers who need high internet speeds</p>
+          </div>
+          <a href="#"
+            class="flex items-center gap-2 w-fit mt-4 px-4 py-2 bg-zinc-100 rounded-lg text-zinc-800 font-medium hover:scale-105 transition-all duration-300">
+            <span class="text-sm">Order now here</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-wifi h-5 stroke-[1.5px]">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 18l.01 0" />
+              <path d="M9.172 15.172a4 4 0 0 1 5.656 0" />
+              <path d="M6.343 12.343a8 8 0 0 1 11.314 0" />
+              <path d="M3.515 9.515c4.686 -4.687 12.284 -4.687 17 0" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- wide internet coverage mobile -->
+        <div
+          class="wide animate-delay-200 flex md:hidden flex-col justify-end w-fit pb-4 px-4 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+          <div class="mt-6">
+            <h2 class="font-semibold text-lg">Wide Internet Coverage</h2>
+            <p class="mt-2 text-sm text-zinc-400">Our services have expanded to various countries around the world. <br>
+              with various types of fiber optic, satellite and cellular data services</p>
+            <a href="#"
+              class="flex flex-row-reverse items-center gap-2 w-fit mt-8 px-4 py-2 bg-zinc-100 rounded-lg font-medium text-sm text-zinc-800 group">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin h-5 fill-none stroke-[1.5px] group-hover:ml-1 group-hover:-mt-1 transition-all duration-300">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+              </svg>
+              <span>Check location availability</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- cloud services -->
+        <div
+          class="cloud animate-delay-500 flex flex-col justify-between h-full pb-4 px-4 md:px-4 lg:px-4 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+          <div class="mt-6">
+            <h2 class="font-semibold text-lg">Cloud Services</h2>
+            <p class="mt-2 lg:w-80 text-sm text-zinc-400">We also provide cloud services such as cloud servers, VPS,
+              cloud computers and others</p>
+          </div>
+          <a href="#"
+            class="w-fit mt-4 px-4 py-2 bg-zinc-100 rounded-lg text-zinc-800 font-medium hover:scale-105 transition-all duration-300 group">
+            <span class="text-sm">See more</span>
+          </a>
+        </div>
+      </section>
+
+    </section>
+  </article>
+
+  <!-- promotion -->
+  <div id="promotions"
+    class="w-96 lg:w-[30rem] h-36 absolute -mt-8 md:ml-48 lg:ml-96 -z-10 rounded-full bg-gradient-to-r from-blue-900 to-blue-700 backdrop-blur-xl blur-3xl opacity-15">
+  </div>
+  <article class="flex flex-col items-center text-zinc-50">
+    <h1
+      class="h1 text-4xl md:text-5xl font-semibold pb-2 bg-gradient-to-r from-zinc-50 to-blue-500 bg-clip-text text-transparent">
+      Recent Promotion</h1>
+    <p class="p mt-2 text-zinc-400">Get discounts and various other promotions</p>
+
+    <!-- promotion container -->
+    <section class="flex flex-col w-full lg:w-fit md:flex-row md:flex-wrap lg:flex-nowrap gap-4 md:mx-8 lg:mx-0 mt-24">
+
+      <!-- router mesh discount -->
+      <div
+        class="router flex flex-col justify-between mx-4 lg:mx-0 md:w-full lg:w-fit p-4 px-3 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-linecap="round" stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-router h-16 md:h-24 stroke-1">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M3 13m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+          <path d="M17 17l0 .01" />
+          <path d="M13 17l0 .01" />
+          <path d="M15 13l0 -2" />
+          <path d="M11.75 8.75a4 4 0 0 1 6.5 0" />
+          <path d="M8.5 6.5a8 8 0 0 1 13 0" />
+        </svg>
+
+        <div class="mt-8">
+          <h2 class="font-medium lg:text-xl text-center text-zinc-50">Discount 50% for Super <br> AI Mesh Router</h2>
+          <p class="mt-2 text-zinc-400 text-xs md:text-sm text-center">Available for all users including new users</p>
+        </div>
+      </div>
+
+      <!-- extra 100 mbps -->
+      <div
+        class="extra flex flex-col justify-between mx-4 lg:mx-0 md:w-full lg:w-fit p-4 px-7 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+        <img src="src/extra.svg" alt="extra" class="h-16 md:h-24">
+        <div class="mt-8">
+          <h2 class="font-medium lg:text-xl text-center text-zinc-50">Free extra up to <br> 100 mbps for new users</h2>
+          <p class="mt-2 text-zinc-400 text-xs md:text-sm text-center">Extra up to 100 mbps for all package</p>
+        </div>
+      </div>
+
+      <!-- free fiber optic -->
+      <div
+        class="fiber flex flex-col justify-between mx-4 lg:mx-0 md:w-full lg:w-fit p-4 px-10 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+        <img src="src/free.svg" alt="extra" class="h-16 md:h-24">
+        <div class="mt-8">
+          <h2 class="font-medium lg:text-xl text-center text-zinc-50">Free fiber optic cable <br> and installation</h2>
+          <p class="mt-2 text-zinc-400 text-xs md:text-sm text-center">Only for new users</p>
+        </div>
+      </div>
+
+      <!-- free cloud storage -->
+      <div
+        class="cloud flex flex-col justify-between mx-4 lg:mx-0 md:w-full lg:w-fit p-4 px-12 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-linecap="round" stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-cloud h-16 md:h-24 stroke-1">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.487 -3.465 3.487h-11.878" />
+        </svg>
+
+        <div class="mt-8">
+          <h2 class="font-medium lg:text-xl text-center text-zinc-50">Free 1 Month Super <br> Cloud Storage</h2>
+          <p class="mt-2 text-zinc-400 text-xs md:text-sm text-center">Free storage up to 1000 GB</p>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <!-- pricing -->
+  <div id="pricing"
+    class="w-96 lg:w-[42rem] h-64 absolute mt-8 ml-8 md:ml-48 lg:mt-24 lg:ml-72 -z-10 rounded-full bg-gradient-to-r from-red-900 to-red-700 backdrop-blur-xl blur-3xl opacity-15">
+  </div>
+  <article x-data="{ open: false}" class="flex flex-col justify-center items-center my-32 text-white">
+    <h1
+      class="h1 text-4xl lg:text-5xl font-semibold pb-2 bg-gradient-to-r from-zinc-50 to-red-500 bg-clip-text text-transparent">
+      Pricing</h1>
+    <p class="p mt-2 text-zinc-400 text-center">Choose your sweet spot internet service plan</p>
+
+    <div @click="open = !open"
+      class="p animate-delay-150 flex justify-center w-fit text-sm md:text-base mt-12 p-1 bg-zinc-800 rounded-full">
+      <button :class="{ 'bg-zinc-950': !open, 'bg-zinc-800': open }"
+        class="px-8 py-1 rounded-full transition-all duration-300">Monthly</button>
+      <button :class="{ 'bg-zinc-950': open, 'bg-zinc-800': !open }"
+        class="px-6 py-1 rounded-full transition-all duration-300">Annually</button>
+    </div>
+
+    <!-- montly pricing container -->
+    <section x-show="!open"
+      class="p animate-delay-150 flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap justify-center gap-6 mx-4 md:mx-8 pt-24"
+      x-transition:enter="transition duration-500 transform" x-transition:enter-start="opacity-0 scale-95"
+      x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition transform"
+      x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
+
+      <!-- home basic -->
+      <div
+        class="flex flex-col justify-between p-6 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+        <div>
+          <h1 class="lg:text-lg font-semibold">Home Basic</h1>
+          <p class="text-zinc-400">Standard speed is suitable for home <br> needs. optimal use of 1 - 5 devices</p>
+          <h1 class="mt-6 font-semibold text-4xl lg:text-6xl">$9 <span
+              class="text-xs lg:text-sm text-zinc-400 font-normal">per month</span>
+          </h1>
+
+          <div class="flex flex-col py-8 mt-8 text-sm lg:text-base border-t border-zinc-400">
+            <h3 class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-brand-speedtest h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5.636 19.364a9 9 0 1 1 12.728 0" />
+                <path d="M16 9l-4 4" />
+              </svg>
+              100 Mbps bandwidth speed
+            </h3>
+            <h3 class="flex items-center gap-2 py-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free 1 month cloud storage
+            </h3>
+            <h3 class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free extra 50 Mbps bandwidth
+            </h3>
+          </div>
+        </div>
+
+        <a href="#"
+          class="flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 py-2 font-semibold text-sm lg:text-base rounded-lg">Get
+          Started</a>
+      </div>
+
+      <!-- home pro -->
+      <div
+        class="flex flex-col justify-between p-6 rounded-lg bg-zinc-100 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-60">
+        <div>
+          <h1 class="lg:text-lg font-semibold">Home Pro</h1>
+          <p class="text-zinc-400">Standard speed is suitable for home <br> needs. optimal use of 3 - 10 devices</p>
+          <h1 class="mt-6 font-semibold text-4xl lg:text-6xl">$20 <span
+              class="text-xs lg:text-sm text-zinc-400 font-normal">per month</span>
+          </h1>
+
+          <div class="flex flex-col py-8 mt-8 text-sm lg:text-base border-t border-zinc-400">
+            <h3 class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-brand-speedtest h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5.636 19.364a9 9 0 1 1 12.728 0" />
+                <path d="M16 9l-4 4" />
+              </svg>
+              250 Mbps bandwidth speed
+            </h3>
+            <h3 class="flex items-center gap-2 py-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free 1 month cloud storage
+            </h3>
+            <h3 class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free extra 100 Mbps bandwidth
+            </h3>
+          </div>
+        </div>
+
+        <a href="#"
+          class="flex justify-center items-center bg-zinc-100 hover:bg-zinc-300 text-zinc-800 py-2 font-semibold text-sm lg:text-base rounded-lg">Choose
+          Plan</a>
+      </div>
+
+      <!-- home gamer -->
+      <div
+        class="flex flex-col justify-between p-6 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+        <div>
+          <h1 class="lg:text-lg font-semibold">Home Gamer</h1>
+          <p class="text-zinc-400">Standard speed is suitable for home <br> needs. optimal use of 5 - 20 devices</p>
+          <h1 class="mt-6 font-semibold text-4xl lg:text-6xl">$50 <span
+              class="text-xs lg:text-sm text-zinc-400 font-normal">per month</span>
+          </h1>
+
+          <div class="flex flex-col py-8 mt-8 text-sm lg:text-base border-t border-zinc-400">
+            <h3 class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-brand-speedtest h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5.636 19.364a9 9 0 1 1 12.728 0" />
+                <path d="M16 9l-4 4" />
+              </svg>
+              1 Gbps bandwidth speed
+            </h3>
+            <h3 class="flex items-center gap-2 py-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free 1 month cloud storage
+            </h3>
+            <h3 class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free extra 1 Gbps bandwidth
+            </h3>
+            <h3 class="flex items-center gap-2 py-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free Super AI Mesh Router
+            </h3>
+          </div>
+        </div>
+
+        <a href="#"
+          class="flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 py-2 font-semibold text-sm lg:text-base rounded-lg">Get
+          Started</a>
+      </div>
+    </section>
+
+    <!-- annualy pricing container -->
+    <section x-show="open" class="p animate-delay-150 flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap justify-center gap-6 mx-4 md:mx-8 pt-24"
+      x-transition:enter="transition duration-500 transform" x-transition:enter-start="opacity-0 scale-95"
+      x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition transform"
+      x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
+
+      <!-- home basic -->
+      <div
+        class="flex flex-col justify-between p-6 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+        <div>
+          <h1 class="lg:text-lg font-semibold">Home Basic</h1>
+          <p class="text-zinc-400">Standard speed is suitable for home <br> needs. optimal use of 1 - 5 devices</p>
+          <h1 class="mt-6 font-semibold text-4xl lg:text-6xl">$8 <span
+              class="text-xs lg:text-sm text-zinc-400 font-normal">per month</span>
+          </h1>
+
+          <div class="flex flex-col py-8 mt-8 text-sm lg:text-base border-t border-zinc-400">
+            <h3 class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-brand-speedtest h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5.636 19.364a9 9 0 1 1 12.728 0" />
+                <path d="M16 9l-4 4" />
+              </svg>
+              100 Mbps bandwidth speed
+            </h3>
+            <h3 class="flex items-center gap-2 py-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free 1 month cloud storage
+            </h3>
+            <h3 class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free extra 50 Mbps bandwidth
+            </h3>
+          </div>
+        </div>
+
+        <a href="#"
+          class="flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 py-2 font-semibold text-sm lg:text-base rounded-lg">Get
+          Started</a>
+      </div>
+
+      <!-- home pro -->
+      <div
+        class="flex flex-col justify-between p-6 rounded-lg bg-zinc-100 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-60">
+        <div>
+          <h1 class="lg:text-lg font-semibold">Home Pro</h1>
+          <p class="text-zinc-400">Standard speed is suitable for home <br> needs. optimal use of 3 - 10 devices</p>
+          <h1 class="mt-6 font-semibold text-4xl lg:text-6xl">$18 <span
+              class="text-xs lg:text-sm text-zinc-400 font-normal">per month</span>
+          </h1>
+
+          <div class="flex flex-col py-8 mt-8 text-sm lg:text-base border-t border-zinc-400">
+            <h3 class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-brand-speedtest h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5.636 19.364a9 9 0 1 1 12.728 0" />
+                <path d="M16 9l-4 4" />
+              </svg>
+              250 Mbps bandwidth speed
+            </h3>
+            <h3 class="flex items-center gap-2 py-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free 1 month cloud storage
+            </h3>
+            <h3 class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free extra 100 Mbps bandwidth
+            </h3>
+          </div>
+        </div>
+
+        <a href="#"
+          class="flex justify-center items-center bg-zinc-100 hover:bg-zinc-300 text-zinc-800 py-2 font-semibold text-sm lg:text-base rounded-lg">Choose
+          Plan</a>
+      </div>
+
+      <!-- home gamer -->
+      <div
+        class="flex flex-col justify-between p-6 rounded-lg bg-zinc-800 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-5 border border-zinc-500 border-opacity-30">
+        <div>
+          <h1 class="lg:text-lg font-semibold">Home Gamer</h1>
+          <p class="text-zinc-400">Standard speed is suitable for home <br> needs. optimal use of 5 - 20 devices</p>
+          <h1 class="mt-6 font-semibold text-4xl lg:text-6xl">$42 <span
+              class="text-xs lg:text-sm text-zinc-400 font-normal">per month</span>
+          </h1>
+
+          <div class="flex flex-col py-8 mt-8 text-sm lg:text-base border-t border-zinc-400">
+            <h3 class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-brand-speedtest h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5.636 19.364a9 9 0 1 1 12.728 0" />
+                <path d="M16 9l-4 4" />
+              </svg>
+              1 Gbps bandwidth speed
+            </h3>
+            <h3 class="flex items-center gap-2 py-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free 1 month cloud storage
+            </h3>
+            <h3 class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free extra 1 Gbps bandwidth
+            </h3>
+            <h3 class="flex items-center gap-2 py-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-check h-7 stroke-2 stroke-green-500">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+              Free Super AI Mesh Router
+            </h3>
+          </div>
+        </div>
+
+        <a href="#"
+          class="flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 py-2 font-semibold text-sm lg:text-base rounded-lg">Get
+          Started</a>
+      </div>
+    </section>
+
+  </article>
+
+  <!-- about -->
+  <article class="flex flex-col justify-center text-white">
+    <h1 class="h1 text-4xl font-medium text-center">What is Supernet?</h1>
+    <p class="p mt-2 text-zinc-400 text-center">Let's get to know more about Supernet internet providers</p>
+
+    <div
+      class="w-96 lg:w-[30rem] h-24 md:h-36 -z-10 absolute md:ml-48 mt-48 lg:-mt-8 lg:ml-96 rounded-full bg-gradient-to-r from-violet-900 to-violet-700 backdrop-blur-xl blur-3xl opacity-25">
+    </div>
+    <div class="mt-48 flex flex-col justify-center items-center">
+      <img src="src/about-logo.svg" alt="logo" class="logo animate-delay-200 h-16 lg:h-24 mb-6">
+      <img src="src/about.svg" alt="about">
+      <p
+        class="p animate-delay-300 absolute text-zinc-300 w-[24rem] md:w-[40rem] lg:w-[44rem] text-center text-xs lg:text-base mt-40 lg:mt-12">
+        Supernet is a fiber optic internet service provider with wide
+        coverage and very high speeds. We also have other cloud services such as cloud servers, computing,
+        storage and others</p>
+    </div>
+  </article>
+
+  <!-- footer -->
+  <footer class="mt-24 m-2 px-6 md:px-12 pt-8 pb-2 bg-zinc-900 bg-opacity-40 text-zinc-50 rounded-lg">
+    <!-- container -->
+    <div class="flex flex-col lg:flex-row justify-between">
+      <div>
+        <img src="src/about-logo.svg" alt="logo" class="h-10 md:h-12">
+        <h2 class="mt-2 mb-8 md:mb-12 md:mt-6 w-60 md:w-80 text-lg md:text-2xl font-medium text-zinc-400">Let’s upgrade
+          your internet speed
+          now
+          with us</h2>
+  
+        <a href="#"
+          class="px-6 md:px-8 py-2 md:py-3 bg-gradient-to-r from-blue-800 hover:from-blue-900 to-purple-800 hover:to-purple-900 hover:font-medium hover:ring-2 ring-zinc-900 rounded-lg">Connect
+          now</a>
+      </div>
+  
+      <!-- navigation -->
+      <div class="flex flex-col lg:flex-row lg:items-center gap-12 md:gap-24 mt-16 lg:mt-0">
+        <!-- products -->
+        <div class="flex flex-col gap-2">
+          <h1 class="mb-2 md:mb-4 font-semibold text-zinc-400">Products</h1>
+          <a href="index.html" class="font-medium hover:text-blue-200">Supernet</a>
+          <a href="features.html#cloud" class="font-medium hover:text-blue-200">Supercloud</a>
+          <a href="features.html#ai" class="font-medium hover:text-blue-200">SuperAI</a>
+        </div>
+  
+        <!-- pages -->
+        <div class="flex flex-col gap-2">
+          <h1 class="mb-2 md:mb-4 font-semibold text-zinc-400">Pages</h1>
+          <a href="index.html" class="font-medium hover:text-blue-200">Home</a>
+          <a href="features.html" class="font-medium hover:text-blue-200">Feature</a>
+          <a href="about.html" class="font-medium hover:text-blue-200">About</a>
+        </div>
+  
+        <!-- social -->
+        <div class="flex flex-col gap-2">
+          <h1 class="mb-2 md:mb-4 font-semibold text-zinc-400">Social</h1>
+          <a href="#" class="font-medium hover:text-blue-200">Instagram</a>
+          <a href="#" class="font-medium hover:text-blue-200">Facebook</a>
+          <a href="#" class="font-medium hover:text-blue-200">Linkedin</a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="flex justify-between mt-8 md:mt-12 pt-2 md:pt-4 border-t border-zinc-400 border-opacity-40">
+      <p class="text-xs md:text-base text-zinc-300">©2024 Supernet. All right reserved. </p>
+      <p class="text-xs md:text-sm text-right text-zinc-300">Gayatama Web Design Competition</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

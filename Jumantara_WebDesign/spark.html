@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime.js Scroll Animation</title>
+    <style>
+        body {
+            height: 2000px;
+            /* Untuk memungkinkan scroll */
+        }
+
+        .easing-demo {
+            position: relative;
+            left: -300px;
+            /* Posisi awal di luar layar */
+            top: 1000px;
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="easing-demo"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var scrollPosition = window.scrollY;
+            if (scrollPosition > 100) { // Ganti nilai ini sesuai kebutuhan
+                anime({
+                    targets: '.easing-demo',
+                    translateX: 300, // Pindahkan ke posisi yang diinginkan
+                    easing: 'easeInOutExpo'
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

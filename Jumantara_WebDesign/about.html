@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <link rel="stylesheet" href="src/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+
+<body class="bg-zinc-950 max-w-7xl min-h-screen mx-auto scrollbar">
+  <div class="absolute inset-0 -z-50" id="sparkleContainerAbout"></div>
+
+  <!-- navbar -->
+  <nav x-data="{ open:false }" class="sticky top-4 z-50 ">
+  
+    <!-- desktop navigation and mobile button -->
+    <div
+      class="flex justify-between items-center px-2 py-2 bg-zinc-700 backdrop-filter backdrop-blur-sm backdrop:blur-sm bg-opacity-40 mx-4 lg:mx-48 my-4 rounded-lg">
+      <!-- logo -->
+      <a href="index.html"><img src="src/logo.svg" alt="logo" class="h-6"></a>
+  
+      <!-- navigasi desktop -->
+      <ul class="hidden lg:flex gap-1 text-zinc-100">
+        <li><a href="index.html" class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">Home</a></li>
+        <li><a href="features.html" class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">Features</a>
+        </li>
+        <li><a href="index.html#promotions"
+            class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">Promotions</a>
+        </li>
+        <li><a href="index.html#pricing" class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">Pricing</a>
+        </li>
+        <li><a href="about.html" class="px-3 py-2 hover:bg-zinc-500 hover:bg-opacity-15 rounded-full">About</a>
+        </li>
+      </ul>
+  
+      <!-- get connect -->
+      <a href="#"
+        class="hidden lg:block px-4 py-2 bg-zinc-50 hover:bg-zinc-300 text-sm text-zinc-800 font-medium rounded-lg">Get
+        connect</a>
+  
+      <!-- Mobile button-->
+      <div class="flex lg:hidden">
+        <!-- Mobile menu button -->
+        <button @click="open = !open" type="button"
+          class="relative inline-flex items-center justify-center rounded-full p-2 text-gray-400 hover:bg-zinc-800 hover:text-zinc-600 focus:outline-none transition-all duration-200"
+          aria-controls="mobile-menu" aria-expanded="false">
+          <!-- Menu open: "hidden", Menu closed: "block" -->
+          <svg x-show="!open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <!-- Menu open: "block", Menu closed: "hidden" -->
+          <svg x-show="open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <!-- mobile navigation-->
+    <div x-show="open" x-transition:enter="transition ease-out duration-500 transform"
+      x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-150 transform" x-transition:leave-start="opacity-100 scale-100"
+      x-transition:leave-end="opacity-0 scale-95"
+      class="lg:hidden mx-4 my-2 bg-zinc-800 bg-opacity-40 backdrop-filter backdrop-blur-sm backdrop:blur-sm rounded-lg"
+      id="mobile-menu">
+      <div class="flex flex-col gap-2 px-2 pb-3 pt-2 sm:px-3 text-center text-zinc-50">
+        <a href="features.html"
+          class="rounded-md hover:scale-105 px-3 py-2 text-base font-medium transition-all duration-300"
+          aria-current="page">Features</a>
+        <a href="index.html#promotions"
+          class="rounded-md hover:scale-105 px-3 py-2 text-base font-medium transition-all duration-300"
+          aria-current="page">Promotions</a>
+        <a href="index.html#pricing"
+          class="rounded-md hover:scale-105 px-3 py-2 text-base font-medium transition-all duration-300"
+          aria-current="page">Pricing</a>
+        <a href="about.html"
+          class="rounded-md hover:scale-105 px-3 py-2 text-base font-medium transition-all duration-300"
+          aria-current="page">About</a>
+        <a href="#" class="mt-4 px-4 py-2 bg-zinc-50 hover:bg-zinc-300 text-sm text-zinc-800 font-medium rounded-lg">Get
+          connect</a>
+      </div>
+    </div>
+  
+  </nav>
+
+  <!-- hero -->
+  <div
+    class="w-96 lg:w-[30rem] h-36 absolute mt-8 ml-8 md:ml-52 lg:ml-96 lg:mt-12 -z-10 rounded-full bg-gradient-to-r from-blue-900 to-blue-700 backdrop-blur-xl blur-3xl opacity-15">
+  </div>
+  <section class="my-24 flex flex-col items-center cursor-default">
+    <h1
+      class="h1 text-4xl md:text-5xl font-semibold pb-2 bg-gradient-to-r from-zinc-50 to-zinc-500 bg-clip-text text-transparent">
+      We are on mission</h1>
+    <p class="p mt-4 w-96 md:w-[36rem] text-sm md:text-base text-zinc-400 text-center">Delivering unparalleled
+      internet
+      experiences through unlimited, symmetric, and full-speed connections, free from FUP and
+      bandwidth sharing limitations.</p>
+
+    <!-- earth -->
+    <img src="src/earth.svg" alt="earth-about" class="h-80 mt-16 fade-up">
+  </section>
+  <div
+    class="w-96 lg:w-[48rem] h-8 absolute mt-8 ml-8 md:ml-52 lg:ml-56 lg:-mt-24 -z-10 rounded-full bg-gradient-to-r from-blue-400 to-sky-300 backdrop-blur-xl blur-3xl opacity-45">
+  </div>
+
+  <!-- take a look -->
+  <article class="flex flex-col justify-center my-24 mx-4 md:mx-8 lg:mx-12 text-zinc-50">
+    <!-- take text -->
+    <div class="flex flex-col md:flex-row justify-between">
+      <h1 class="fade-right text-3xl md:text-4xl font-semibold pb-2">
+        Take a look at what we've accomplished</h1>
+      <p class="fade-left mt-4 w-96 lg:ml-36 text-sm text-zinc-400 text-left md:text-right">Delivering
+        unparalleled internet
+        experiences through unlimited, symmetric, and full-speed connections, free from FUP and
+        bandwidth sharing limitations.</p>
+    </div>
+
+    <!-- grid -->
+    <div class="flex flex-col md:flex-row gap-4 my-12">
+      <!-- user -->
+      <div
+        class="fade-up flex flex-col p-8 px-16 md:px-14 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-15">
+        <h1 class="text-5xl md:text-6xl font-semibold text-center">100M<span class="text-blue-500">+</span></h1>
+        <h3 class="mt-1 font-medium text-lg text-center">Active users</h3>
+        <p class="mt-4 md:mt-8 text-sm text-center text-zinc-300">We have more than 100 million users spread all
+          over the world</p>
+      </div>
+
+      <!-- trusted -->
+      <div
+        class="fade-down animate-delay-100 flex flex-col p-8 px-16 md:px-20 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-15">
+        <h1 class="text-5xl md:text-6xl font-semibold text-center">100<span class="text-blue-500">+</span></h1>
+        <h3 class="mt-1 font-medium text-lg text-center">Trusted partner</h3>
+        <p class="mt-4 md:mt-8 text-sm text-center text-zinc-300">We collaborate with more than 100 trusted
+          partners</p>
+      </div>
+
+      <!-- branch -->
+      <div
+        class="fade-up animate-delay-300 flex flex-col p-8 px-16 md:px-14 bg-zinc-500 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-15">
+        <h1 class="text-5xl md:text-6xl font-semibold text-center">700<span class="text-blue-500">+</span></h1>
+        <h3 class="mt-1 font-medium text-lg text-center">Branch Office</h3>
+        <p class="mt-4 md:mt-8 text-sm text-center text-zinc-300">There are more than 700 branch offices spread
+          throughout the world</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- teams -->
+  <article class="my-24 mx-4 md:mx-8 lg:mx-12 flex flex-col items-center text-zinc-50">
+    <div class="flex flex-col mb-16">
+      <h1
+        class="fade-right mx-12 md:mx-0 text-4xl md:text-5xl font-semibold text-center pb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-red-500">
+        Say Hi to Our Team</h1>
+      <p class="fade-left mx-12 md:mx-0 mt-4 text-sm md:text-base text-zinc-400 text-center">Get ready to meet face
+        behind the
+        magic force driving our succes</p>
+    </div>
+
+    <!-- team -->
+    <div class="flex flex-col md:flex-row items-center gap-6">
+
+      <!-- frontend developer -->
+      <div x-data="{hover:false}"
+        class="fade-right animate-delay-150 flex flex-col pt-4 bg-gradient-to-r from-zinc-800 to-zinc-900 bg-opacity-80 rounded-lg group">
+        <div class="font-semibold text-3xl md:text-4xl px-4">
+          <h1 class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-zinc-50">Fahmi</h1>
+          <h2 class="ml-8 md:ml-12 text-zinc-50">Abdullah</h2>
+        </div>
+
+        <img @mouseover="hover = true" @mouseleave="hover = false" src="src/fahmi.png" alt="team1"
+          class="hover h-64 md:h-72 z-10 mt-8 px-16 grayscale hover:grayscale-0 transition-all duration-700">
+        <div x-show="hover" :class="{'hidden' :!hover}"
+          class="absolute group-hover:inline-block w-[26.1rem] h-48 mt-48 md:mt-56 bg-gradient-to-b from-purple-600 to-zinc-800 bg-opacity-40 blur-xl rounded-t-full"
+          x-transition:enter="transition-all duration-500 transform" x-transition:enter-start="opacity-0 scale-95"
+          x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition-all duration-700 transform"
+          x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"></div>
+
+        <div class="flex flex-col justify-center items-center py-4 rounded-b-lg bg-zinc-900">
+          <h3 class="font-medium text-lg">Frontend Developer</h3>
+          <p class="text-zinc-400">College Student</p>
+        </div>
+      </div>
+
+      <!-- ui/ux desainer -->
+      <div x-data="{hover:false}"
+        class="fade-right animate-delay-150 flex flex-col pt-4 bg-gradient-to-r from-zinc-800 to-zinc-900 bg-opacity-80 rounded-lg group">
+        <div class="font-semibold text-3xl md:text-4xl px-4">
+          <h1 class="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-zinc-50">Rizky</h1>
+          <h2 class="ml-8 md:ml-12 text-zinc-50">Febrian</h2>
+        </div>
+
+        <img @mouseover="hover = true" @mouseleave="hover = false" src="src/rizky.png" alt="team2"
+          class="hover h-64 md:h-72 z-10 mt-8 px-16 grayscale hover:grayscale-0 transition-all duration-700">
+        <div x-show="hover" :class="{'hidden' :!hover}"
+          class="absolute group-hover:inline-block w-[26.1rem] h-48 mt-48 md:mt-56 bg-gradient-to-b from-rose-600 to-zinc-800 bg-opacity-40 blur-xl rounded-t-full"
+          x-transition:enter="transition-all duration-500 transform" x-transition:enter-start="opacity-0 scale-95"
+          x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition-all duration-700 transform"
+          x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"></div>
+
+        <div class="flex flex-col justify-center items-center py-4 rounded-b-lg bg-zinc-900">
+          <h3 class="font-medium text-lg">UI/UX Desainer</h3>
+          <p class="text-zinc-400">College Student</p>
+        </div>
+      </div>
+
+    </div>
+
+  </article>
+
+  <!-- about teams -->
+  <article class="flex flex-col items-center text-center my-48 mx-4 md:mx-8 lg:mx-12">
+    <h1
+      class="fade-right text-4xl md:text-5xl font-semibold pb-2 text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-sky-500">
+      What For We Build This Webiste?</h1>
+
+    <p class="fade-left mt-4 lg:w-[64rem] text-base md:text-lg text-zinc-400">
+      <span class="ml-0">The</span> purpose we
+      created this website to take part in the Gayatama Web Design Competition held by
+      <span class="font-medium text-zinc-300 hover:text-white"><a href="https://www.unesa.ac.id/">Universitas Negeri
+          Surabaya
+          (UNESA)</a></span>
+      . Of course, the brand and other things on this website are not real and made for website aesthetics only
+    </p>
+    <p class="fade-left mt-4 lg:w-[64rem] text-base md:text-lg text-zinc-400">
+      <span class="ml-0">We</span>
+      come from a
+      <span class="font-medium text-zinc-300 hover:text-white"><a href="https://uisi.ac.id/">Universitas Internasional
+          Semen Indonesia
+          (UISI)</a></span>
+      in the city of Gresik not far from
+      <span class="font-medium text-zinc-300 hover:text-white"><a href="https://www.unesa.ac.id/">UNESA</a></span>
+      . We are 5th semester Information Systems students. and we also have a high interest in Frontend Web
+      Development and UI/UX Design
+    </p>
+    </div>
+  </article>
+
+  <!-- footer -->
+  <footer class="mt-24 m-2 px-6 md:px-12 pt-8 pb-2 bg-zinc-900 bg-opacity-40 text-zinc-50 rounded-lg">
+    <!-- container -->
+    <div class="flex flex-col lg:flex-row justify-between">
+      <div>
+        <img src="src/about-logo.svg" alt="logo" class="h-10 md:h-12">
+        <h2 class="mt-2 mb-8 md:mb-12 md:mt-6 w-60 md:w-80 text-lg md:text-2xl font-medium text-zinc-400">Let’s upgrade
+          your internet speed
+          now
+          with us</h2>
+  
+        <a href="#"
+          class="px-6 md:px-8 py-2 md:py-3 bg-gradient-to-r from-blue-800 hover:from-blue-900 to-purple-800 hover:to-purple-900 hover:font-medium hover:ring-2 ring-zinc-900 rounded-lg">Connect
+          now</a>
+      </div>
+  
+      <!-- navigation -->
+      <div class="flex flex-col lg:flex-row lg:items-center gap-12 md:gap-24 mt-16 lg:mt-0">
+        <!-- products -->
+        <div class="flex flex-col gap-2">
+          <h1 class="mb-2 md:mb-4 font-semibold text-zinc-400">Products</h1>
+          <a href="index.html" class="font-medium hover:text-blue-200">Supernet</a>
+          <a href="features.html#cloud" class="font-medium hover:text-blue-200">Supercloud</a>
+          <a href="features.html#ai" class="font-medium hover:text-blue-200">SuperAI</a>
+        </div>
+  
+        <!-- pages -->
+        <div class="flex flex-col gap-2">
+          <h1 class="mb-2 md:mb-4 font-semibold text-zinc-400">Pages</h1>
+          <a href="index.html" class="font-medium hover:text-blue-200">Home</a>
+          <a href="features.html" class="font-medium hover:text-blue-200">Feature</a>
+          <a href="about.html" class="font-medium hover:text-blue-200">About</a>
+        </div>
+  
+        <!-- social -->
+        <div class="flex flex-col gap-2">
+          <h1 class="mb-2 md:mb-4 font-semibold text-zinc-400">Social</h1>
+          <a href="#" class="font-medium hover:text-blue-200">Instagram</a>
+          <a href="#" class="font-medium hover:text-blue-200">Facebook</a>
+          <a href="#" class="font-medium hover:text-blue-200">Linkedin</a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="flex justify-between mt-8 md:mt-12 pt-2 md:pt-4 border-t border-zinc-400 border-opacity-40">
+      <p class="text-xs md:text-base text-zinc-300">©2024 Supernet. All right reserved. </p>
+      <p class="text-xs md:text-sm text-right text-zinc-300">Gayatama Web Design Competition</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
